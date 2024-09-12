@@ -10,14 +10,18 @@ function calculateTax(income, expenses) {
 
 }
 
+
 function sendNotication(email) {
 
     if (email.indexOf('@') === -1) {
         return 'Invalid Email'
     }
-    let str = email.replace('@', ' sent you an email from ');
-    return str;
+    let str1 = email.split('@')[0];
+    let str2 = email.split('@')[1];
+    return str1 + ' sent you an email from ' + str2;
 }
+
+
 
 
 function checkDigitsInName(name) {
@@ -52,14 +56,14 @@ function calculateFinalScore(obj) {
 
 function waitingTime(waitingTimes, serialNumber) {
 
-   if (!Array.isArray(waitingTimes) || typeof serialNumber !== 'number') {
-      return "Invalid Input";
-   }
-   let lengthArray = waitingTimes.length;
-   let sumArray = 0;
-   for (let i = 0; i < lengthArray; i++) {
-      sumArray += waitingTimes[i];
-   }
-   let avg = Math.round(sumArray / lengthArray);
-   return (serialNumber - 1 - lengthArray) * avg;
+    if (!Array.isArray(waitingTimes) || typeof serialNumber !== 'number') {
+        return "Invalid Input";
+    }
+    let lengthArray = waitingTimes.length;
+    let sumArray = 0;
+    for (let i = 0; i < lengthArray; i++) {
+        sumArray += waitingTimes[i];
+    }
+    let avg = Math.round(sumArray / lengthArray);
+    return (serialNumber - 1 - lengthArray) * avg;
 }
